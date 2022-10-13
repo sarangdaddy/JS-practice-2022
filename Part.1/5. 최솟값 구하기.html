@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // const minValue = Math.min(...arr);
+        // return minValue;
+
+        let answer;
+        let minValue = Number.MAX_SAFE_INTEGER; // 안정적인 임의의 큰수 지정
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] < minValue) {
+            minValue = arr[i];
+          }
+        }
+        answer = minValue;
+        return answer;
+      }
+
+      let arr = [5, 7, 2, 3, 2, 9, 11];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
