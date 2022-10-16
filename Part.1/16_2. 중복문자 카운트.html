@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = 0;
+        let position = s.indexOf("u");
+
+        while (position !== -1) {
+          answer++;
+          position = s.indexOf("u", position + 1);
+        }
+
+        return answer;
+      }
+      console.log(solution("sungun"));
+    </script>
+  </body>
+</html>

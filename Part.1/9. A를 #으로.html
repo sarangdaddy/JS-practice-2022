@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        // let changeStr = str.replaceAll("A", "#");
+        let changeStr = str.replace(/A/g, "#");
+        str = changeStr;
+        return str;
+      }
+      //     let answer = "";
+
+      //     for (let i = 0; i < str.length; i++) {
+      //       if (str[i] === "A") {
+      //         answer = answer + "#";
+      //       } else {
+      //         answer = answer + str[i];
+      //       }
+      //     }
+
+      //     return answer;
+      //   }
+
+      let str = "BANANA";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

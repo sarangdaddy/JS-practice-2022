@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let strArray = s.split("");
+        let selectArray = strArray.filter((x, y) => x === t, 0);
+        // let selectArray = strArray.filter(function (x, y) {
+        //   if (x === t) {
+        //     return x;
+        //   }
+
+        return selectArray.length;
+
+        // let answer = 0;
+        // for (let i = 0; i < s.length; i++) {
+        //   if (s[i] === t) {
+        //     answer++;
+        //   }
+        // }
+        // return answer;
+      }
+
+      let str = "COMPUTERPROGRARRRMMING";
+      console.log(solution(str, "R"));
+    </script>
+  </body>
+</html>

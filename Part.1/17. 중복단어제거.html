@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = [];
+
+        answer = s.filter(function (v, i) {
+          if (s.indexOf(v) === i) {
+            return true;
+          }
+        });
+
+        // for (let i = 0; i < s.length; i++) {
+        //   let strOfArray = s[i];
+        //   if (answer.indexOf(strOfArray) === -1) {
+        //     answer.push(strOfArray);
+        //   }
+        // }
+
+        return answer;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
