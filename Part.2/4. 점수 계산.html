@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let count = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === 1) {
+            count++;
+            answer.push(count);
+          } else if (arr[i] === 0) {
+            count = 0;
+            answer.push(count);
+          }
+        }
+
+        let sumAnswer = answer.reduce(function (acc, v) {
+          return acc + v;
+        }, 0);
+
+        console.log(answer);
+        return sumAnswer;
+      }
+
+      let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
