@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        // let string = s.toUpperCase();
+        // let answer = "";
+        // let n = str.length;
+
+        // for (let i = 0; i < Math.floor(n / 2); i++) {
+        //   if (s[i] === s[n - i - 1]) {
+        //     answer = "YES";
+        //   } else {
+        //     answer = "NO";
+        //   }
+        // }
+
+        s = s.toUpperCase();
+        let answer = "YES";
+        let strArry = s.split("").reverse().join("");
+
+        if (strArry !== s) {
+          console.log(strArry, s);
+          return (answer = "NO");
+        } else {
+          console.log(strArry, s);
+          return answer;
+        }
+      }
+
+      let str = "goollG";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
