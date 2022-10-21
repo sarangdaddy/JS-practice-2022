@@ -8,7 +8,7 @@
       function solution(s, t) {
         s = s.toLowerCase();
         let answer = [];
-        let count = 0;
+        let count = Number.MAX_SAFE_INTEGER;
 
         for (let i = 0; i < s.length; i++) {
           if (s[i] === t) {
