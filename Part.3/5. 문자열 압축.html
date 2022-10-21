@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        let count = 1;
+
+        s = s + " ";
+
+        for (let i = 0; i < s.length - 1; i++) {
+          if (s[i] === s[i + 1]) {
+            count++;
+          } else {
+            answer += s[i];
+            console.log(answer);
+            console.log(answer.length);
+            if (count > 1) {
+              answer += String(count);
+              console.log(answer);
+              console.log(answer.length);
+              count = 1;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let str = "KKHSSSSSSSE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
