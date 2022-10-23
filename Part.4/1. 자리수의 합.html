@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer;
+        let max = Number.MIN_SAFE_INTEGER;
+
+        for (let i = 0; i < n; i++) {
+          let sum = arr[i]
+            .toString()
+            .split("")
+            .reduce(function (a, b) {
+              return a + Number(b);
+            }, 0);
+
+          console.log(sum);
+
+          // let tmp = arr[i];
+          // while (tmp) {
+          //   sum += tmp % 10;
+          //   tmp = Math.floor(tmp / 10);
+          // }
+
+          if (sum > max) {
+            max = sum;
+            answer = arr[i];
+          } else if (sum === max) {
+            if (arr[i] > answer) {
+              answer = arr[i];
+            }
+          }
+        }
+
+        // let sum = 0;
+        // let sumArray = [];
+        // let max = Number.MIN_SAFE_INTEGER;
+        // let answer = 0;
+
+        // for (let i = 0; i < n; i++) {
+        //   for (let j = 0; j < String(arr[i]).length; j++) {
+        //     sum += Number(String(arr[i])[j]);
+        //   }
+        //   sumArray.push(sum);
+        //   sum = 0;
+        // }
+
+        // for (let i = 0; i < n; i++) {
+        //   if (sumArray[i] > max) {
+        //     max = sumArray[i];
+        //     answer = arr[i];
+        //   } else if (sumArray[i] === max) {
+        //     if (arr[i] > answer) {
+        //       answer = arr[i];
+        //     }
+        //   }
+        // }
+
+        // console.log(arr);
+        // console.log(sumArray);
+
+        return answer;
+      }
+
+      let arr = [128, 460, 603, 407, 521, 254, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>

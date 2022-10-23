@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0;
+        let studentNumber = product.length;
+
+        product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+        // 가장 많이 사는 방법은 가장 작은 비용 부터 사는것.
+
+        for (let i = 0; i < studentNumber; i++) {
+          // 하나를 할인 받았을때의 모든 경우를 구한다.
+          let money = m - (product[i][0] / 2 + product[i][1]);
+          let count = 1;
+          for (let j = 0; j < studentNumber; j++) {
+            if (j !== i && product[j][0] + product[j][1] > money) {
+              break;
+            }
+            if (j !== i && product[j][0] + product[j][1] <= money) {
+              money -= product[j][0] + product[j][1];
+              count++;
+            }
+          }
+          answer = Math.max(answer, count);
+          // 모든 i가 할인 받았을때 count중 가장 큰 값을 답으로
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          let reverse = "";
+          let tmp = arr[i];
+
+          while (tmp) {
+            reverse += tmp % 10;
+            tmp = Math.floor(tmp / 10);
+          }
+          answer.push(parseInt(reverse));
+        }
+
+        isPrime(answer);
+        return answer;
+      }
+
+      function isPrime(answer) {
+        let primeNumber = [];
+
+        for (let i = 0; i < answer.length; i++) {
+          let flag = true;
+          if (answer[i] === 1) {
+            flag = false;
+          }
+          for (let j = 2; j < parseInt(answer[i] / 2); j++) {
+            if (answer[i] % j === 0) {
+              flag = false;
+            }
+          }
+          if (flag === true) {
+            primeNumber.push(answer[i]);
+          }
+        }
+        console.log(primeNumber);
+      }
+
+      let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100, 156, 700, 1268, 9999];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

@@ -9,23 +9,27 @@
         let answer = [];
         answer.push(arr[0]);
 
-        let maxStudent = arr[0];
-
-        for (let i = 1; i < arr.length; i++) {
-          if (arr[i] > maxStudent) {
-            answer.push(arr[i]);
-            maxStudent = arr[i];
-          }
-        }
+        // let maxStudent = arr[0];
 
         // for (let i = 1; i < arr.length; i++) {
-        //   for (let j = 0; j < i; j++) {
-        //     if (arr[i] > arr[j]) {
-        //       student = arr[i];
-        //       answer.push(student);
-        //     }
+        //   if (arr[i] > maxStudent) {
+        //     answer.push(arr[i]);
+        //     maxStudent = arr[i];
         //   }
         // }
+
+        for (let i = 1; i < arr.length; i++) {
+          let flag = true;
+          for (let j = 0; j < i; j++) {
+            if (arr[i] <= arr[j]) {
+              flag = false;
+              break;
+            }
+          }
+          if (flag === true) {
+            answer.push(arr[i]);
+          }
+        }
 
         return answer;
       }
