@@ -16,7 +16,7 @@
           if (sum === m) {
             answer++;
           }
-          while (sum >= m) {
+          while (sum >= m) { // 같을때도 lt를 증가 시킨다. 주의
             sum -= arr[p++];
             if (sum === m) {
               answer++;
