@@ -13,9 +13,10 @@
           sum += arr[i];
           answer = sum;
         }
+        console.log(answer);
 
         for (let i = k; i < arr.length; i++) {
-          sum += arr[i] - arr[i - k];
+          sum += arr[i] - arr[i - k]; // k 다음 수를 더하면서 가장 앞에서 제거 즉 계속 3개의 합을 호출
           console.log(sum);
           answer = Math.max(answer, sum);
         }

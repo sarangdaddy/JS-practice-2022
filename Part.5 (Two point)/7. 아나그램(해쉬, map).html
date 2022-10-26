@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str1, str2) {
+        let answer = "YES";
+
+        let sH = new Map();
+
+        for (x of str1) {
+          if (sH.has(x)) {
+            sH.set(x, sH.get(x) + 1);
+          } else {
+            sH.set(x, 1);
+          }
+          console.log(sH);
+        }
+
+        for (x of str2) {
+          if (!sH.has(x) || sH.get(x) === 0) {
+            answer = "NO";
+          }
+          sH.set(x, sH.get(x) - 1);
+          console.log(sH);
+        }
+
+        return answer;
+      }
+
+      let a = "AbaAeCE";
+      let b = "AbaAeCE";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>

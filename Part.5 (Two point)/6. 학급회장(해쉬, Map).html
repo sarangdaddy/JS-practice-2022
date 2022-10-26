@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let max = Number.MIN_SAFE_INTEGER;
+        let countMap = new Map();
+
+        for (let i = 0; i < s.length; i++) {
+          if (countMap.has(s[i])) {
+            countMap.set(s[i], countMap.get(s[i]) + 1);
+          } else {
+            countMap.set(s[i], 1);
+          }
+          console.log(countMap);
+        }
+
+        for (let [key, val] of countMap) {
+          if (val > max) {
+            max = val;
+            answer = key;
+          }
+        }
+
+        return answer;
+      }
+
+      let str = "BACBACCACCBDEDE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
