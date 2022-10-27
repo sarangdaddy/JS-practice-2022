@@ -5,34 +5,66 @@
   </head>
   <body>
     <script>
-      function compareMaps(map1, map2) {
-        if (map1.size !== map2.size) return false;
-        for (let [key, val] of map1) {
-          if (!map2.has(key) || map2.get(key) !== val) return false;
-        }
-        return true;
-      }
       function solution(s, t) {
         let answer = 0;
+
+        // 아나그램을 위해 해쉬 Map 생성
         let tH = new Map();
         let sH = new Map();
-        for (let x of t) {
-          if (tH.has(x)) tH.set(x, tH.get(x) + 1);
-          else tH.set(x, 1);
+
+        let n = s.length;
+        let m = t.length;
+
+        // 대칭할 문자열 생성
+        for (x of t) {
+          if (tH.has(x)) {
+            tH.set(x, tH.get(x) + 1);
+          } else tH.set(x, 1);
         }
-        let len = t.length - 1;
-        for (let i = 0; i < len; i++) {
-          if (sH.has(s[i])) sH.set(s[i], sH.get(s[i]) + 1);
-          else sH.set(s[i], 1);
+
+        // 대칭 문자열 선정
+        for (let i = 0; i < m - 1; i++) {
+          if (sH.has(s[i])) {
+            sH.set(s[i], sH.get(s[i]) + 1);
+          } else sH.set(s[i], 1);
         }
+
         let lt = 0;
-        for (let rt = len; rt < s.length; rt++) {
-          if (sH.has(s[rt])) sH.set(s[rt], sH.get(s[rt]) + 1);
-          else sH.set(s[rt], 1);
-          if (compareMaps(sH, tH)) answer++;
+
+        // 투 포인트로 슬라우드 윈도우 대칭
+        for (let rt = m - 1; rt < n; rt++) {
+          if (sH.has(s[rt])) {
+            sH.set(s[rt], sH.get(s[rt]) + 1);
+          } else sH.set(s[rt], 1);
+
+          console.log(sH);
+
+          // 대칭할 문자열 size만큼 대칭 문자열 size가 되면 아나그램 확인
+          if (checkAnagram(tH, sH) === true) {
+            answer++;
+          }
+
+          // 아나그램 확인 후 한칸 이동을 위해 앞선 한칸 삭제
           sH.set(s[lt], sH.get(s[lt]) - 1);
-          if (sH.get(s[lt]) === 0) sH.delete(s[lt]);
+          if (sH.get(s[lt]) === 0) {
+            sH.delete(s[lt]);
+          }
           lt++;
+
+          console.log(sH);
+        }
+
+        // 아나그램 확인 함수
+        function checkAnagram(tH, sH) {
+          if (tH.size !== sH.size) {
+            return false;
+          }
+          for (let [key, val] of tH) {
+            if (!sH.has(key) || sH.get(key) !== val) {
+              return false;
+            }
+          }
+          return true;
         }
         return answer;
       }
