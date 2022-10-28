@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let stack = [];
+
+        for (let i = 0; i < s.length; i++) {
+          if (!isNaN(s[i])) {
+            stack.push(Number(s[i]));
+          } else {
+            let rt = stack.pop();
+            let lt = stack.pop();
+
+            switch (s[i]) {
+              case "+":
+                stack.push(lt + rt);
+                break;
+
+              case "-":
+                stack.push(lt - rt);
+                break;
+
+              case "*":
+                stack.push(lt * rt);
+                break;
+
+              case "/":
+                stack.push(lt / rt);
+                break;
+            }
+          }
+          console.log(stack);
+        }
+        answer = stack[0];
+        return answer;
+      }
+
+      let str = "352+*9-";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
